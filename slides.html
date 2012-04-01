@@ -102,6 +102,29 @@
       </div>
       <div class='spacer bottom'></div>
     </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>postgresql adapter</h1>
+        
+        <p><textarea class='code' display='none' mode='bash'>$ rspec&#x000A;LoadError: load error: pg_ext -- java.lang.UnsatisfiedLinkError:&#x000A;failed to load shim library, error: /usr/lib/libstdc++.so.6:&#x000A;version `GLIBCXX_3.4.14' not found (required by /home/peterv/&#x000A;.rvm/rubies/jruby-1.6.7/lib/native/i386-Linux/libjruby-cext.so)</textarea>
+    
+        gem 'pg' has native extensions</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>jdbcpostgresql</h1>
+        
+        <p><textarea class='code' display='none' mode='ruby'>$ git diff -U0 v0.0.2..v0.0.3 Gemfile | tail -4&#x000A;-gem 'pg'&#x000A;+gem 'pg', :platform => :ruby&#x000A;+gem 'activerecord-jdbcpostgresql-adapter', :platform => :jruby&#x000A;+gem 'jruby-openssl', :platform => :jruby&#x000A;&#x000A;$ git diff -U0 v0.0.2..v0.0.3 config/database.yml | tail -1&#x000A;+  adapter: postgresql # no "jdbcpostgresql" needed here&#x000A;&#x000A;$ rspec</textarea>
+    </p>
+        
+        <p>Note: Connection over tcp/ip socket (not UNIX domain socket)</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
     <!-- deck.js navigation extension -->
     <a class='deck-prev-link' href='#' title='Previous'>&#8592;</a>
     <a class='deck-next-link' href='#' title='Next'>&#8594;</a>

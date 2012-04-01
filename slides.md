@@ -88,3 +88,36 @@ Installing pg (0.13.2) with native extensions
 ...
 Your bundle is complete! ...
 ```
+
+!SLIDE
+
+# postgresql adapter
+
+```bash
+$ rspec
+LoadError: load error: pg_ext -- java.lang.UnsatisfiedLinkError:
+failed to load shim library, error: /usr/lib/libstdc++.so.6:
+version `GLIBCXX_3.4.14' not found (required by /home/peterv/
+.rvm/rubies/jruby-1.6.7/lib/native/i386-Linux/libjruby-cext.so)
+```
+gem 'pg' has native extensions
+
+!SLIDE
+
+# jdbcpostgresql
+
+```ruby
+$ git diff -U0 v0.0.2..v0.0.3 Gemfile | tail -4
+-gem 'pg'
++gem 'pg', :platform => :ruby
++gem 'activerecord-jdbcpostgresql-adapter', :platform => :jruby
++gem 'jruby-openssl', :platform => :jruby
+
+$ git diff -U0 v0.0.2..v0.0.3 config/database.yml | tail -1
++  adapter: postgresql # no "jdbcpostgresql" needed here
+
+$ rspec
+
+```
+
+Note: Connection over tcp/ip socket (not UNIX domain socket)
