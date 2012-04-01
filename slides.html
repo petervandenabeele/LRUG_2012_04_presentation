@@ -125,6 +125,48 @@
       </div>
       <div class='spacer bottom'></div>
     </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>slow start-up?</h1>
+        
+        <p><textarea class='code' display='none' mode='bash'>$ time rspec&#x000A;.................................&#x000A;&#x000A;Finished in 2.97 seconds&#x000A;33 examples, 0 failures&#x000A;&#x000A;real	0m18.438s&#x000A;user	0m29.222s&#x000A;sys	0m1.552s</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>compare MRI</h1>
+        
+        <p><textarea class='code' display='none' mode='bash'>$ rvm use 1.9.3@lrug-jruby&#x000A;Using /home/peterv/.rvm/gems/ruby-1.9.3-p125 with gemset lrug-jruby&#x000A;peterv@e6500:~/b/github/petervandenabeele/lrug-2012-04-demo$ time rspec&#x000A;.................................&#x000A;&#x000A;Finished in 0.51011 seconds&#x000A;33 examples, 0 failures&#x000A;&#x000A;real	0m4.120s&#x000A;user	0m3.740s&#x000A;sys	0m0.304s</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Nailgun</h1>
+        
+        <p>From the book (untested)</p>
+        
+        <p><textarea class='code' display='none' mode='bash'>$ jruby --ng-server&#x000A;&#x000A;$ jruby --ng program.rb</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>HBase</h1>
+        
+        <p><textarea class='code' display='none' mode='ruby'>HADOOP_HOME = ENV['HADOOP_HOME']&#x000A;...&#x000A;include Java&#x000A;require 'java'&#x000A;$CLASSPATH << "#{HADOOP_HOME}/"&#x000A;...&#x000A;puts require 'hadoop-core.jar'&#x000A;...&#x000A;import org.apache.hadoop.conf.Configuration&#x000A;...&#x000A;def self.create_hbase_table(table_name)&#x000A;  conf = HBaseConfiguration.create()&#x000A;  hbase_admin = Hbase::Admin.new(conf, nil)&#x000A;  hbase_admin.create(table_name, "demo")&#x000A;end</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
     <!-- deck.js navigation extension -->
     <a class='deck-prev-link' href='#' title='Previous'>&#8592;</a>
     <a class='deck-next-link' href='#' title='Next'>&#8594;</a>

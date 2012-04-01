@@ -117,7 +117,73 @@ $ git diff -U0 v0.0.2..v0.0.3 config/database.yml | tail -1
 +  adapter: postgresql # no "jdbcpostgresql" needed here
 
 $ rspec
-
 ```
 
 Note: Connection over tcp/ip socket (not UNIX domain socket)
+
+!SLIDE
+
+# slow start-up?
+
+```bash
+$ time rspec
+.................................
+
+Finished in 2.97 seconds
+33 examples, 0 failures
+
+real	0m18.438s
+user	0m29.222s
+sys	0m1.552s
+
+```
+
+!SLIDE
+
+# compare MRI
+
+```bash
+$ rvm use 1.9.3@lrug-jruby
+Using /home/peterv/.rvm/gems/ruby-1.9.3-p125 with gemset lrug-jruby
+peterv@e6500:~/b/github/petervandenabeele/lrug-2012-04-demo$ time rspec
+.................................
+
+Finished in 0.51011 seconds
+33 examples, 0 failures
+
+real	0m4.120s
+user	0m3.740s
+sys	0m0.304s
+```
+!SLIDE
+
+# Nailgun
+
+From the book (untested)
+
+```bash
+$ jruby --ng-server
+
+$ jruby --ng program.rb
+```
+!SLIDE
+
+# HBase
+
+```ruby
+HADOOP_HOME = ENV['HADOOP_HOME']
+...
+include Java
+require 'java'
+$CLASSPATH << "#{HADOOP_HOME}/"
+...
+puts require 'hadoop-core.jar'
+...
+import org.apache.hadoop.conf.Configuration
+...
+def self.create_hbase_table(table_name)
+  conf = HBaseConfiguration.create()
+  hbase_admin = Hbase::Admin.new(conf, nil)
+  hbase_admin.create(table_name, "demo")
+end
+```
