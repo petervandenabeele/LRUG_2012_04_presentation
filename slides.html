@@ -118,7 +118,7 @@
       <div class='content'>
         <h1>jdbcpostgresql</h1>
         
-        <p><textarea class='code' display='none' mode='ruby'>$ git diff -U0 v0.0.2..v0.0.3 Gemfile | tail -4&#x000A;-gem 'pg'&#x000A;+gem 'pg', :platform => :ruby&#x000A;+gem 'activerecord-jdbcpostgresql-adapter', :platform => :jruby&#x000A;+gem 'jruby-openssl', :platform => :jruby&#x000A;&#x000A;$ git diff -U0 v0.0.2..v0.0.3 config/database.yml | tail -1&#x000A;+  adapter: postgresql # no "jdbcpostgresql" needed here&#x000A;&#x000A;$ rspec</textarea>
+        <p><textarea class='code' display='none' mode='ruby'>$ git diff -U0 v0.0.2..v0.0.3 Gemfile | tail -4&#x000A;-gem 'pg'&#x000A;+gem 'pg', :platform => :ruby&#x000A;+gem 'activerecord-jdbcpostgresql-adapter', :platform => :jruby&#x000A;+gem 'jruby-openssl', :platform => :jruby&#x000A;&#x000A;$ git diff -U0 v0.0.2..v0.0.3 config/database.yml | tail -1&#x000A;+  adapter: postgresql # no "jdbcpostgresql" needed here&#x000A;&#x000A;$ rspec # all tests pass :-)&#x000A;...&#x000A;33 examples, 0 failures</textarea>
     </p>
         
         <p>Note: Connection over tcp/ip socket (not UNIX domain socket)</p>
@@ -164,6 +164,22 @@
         
         <p><textarea class='code' display='none' mode='ruby'>HADOOP_HOME = ENV['HADOOP_HOME']&#x000A;...&#x000A;include Java&#x000A;require 'java'&#x000A;$CLASSPATH << "#{HADOOP_HOME}/"&#x000A;...&#x000A;puts require 'hadoop-core.jar'&#x000A;...&#x000A;import org.apache.hadoop.conf.Configuration&#x000A;...&#x000A;def self.create_hbase_table(table_name)&#x000A;  conf = HBaseConfiguration.create()&#x000A;  hbase_admin = Hbase::Admin.new(conf, nil)&#x000A;  hbase_admin.create(table_name, "demo")&#x000A;end</textarea>
     </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='full-background lonely_bird slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Demo time</h1>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Questions ?</h1>
+        
+        <p>Note: looking for a new assignment from mid April</p>
       </div>
       <div class='spacer bottom'></div>
     </section>

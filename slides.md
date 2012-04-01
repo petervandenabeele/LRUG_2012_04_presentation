@@ -116,7 +116,9 @@ $ git diff -U0 v0.0.2..v0.0.3 Gemfile | tail -4
 $ git diff -U0 v0.0.2..v0.0.3 config/database.yml | tail -1
 +  adapter: postgresql # no "jdbcpostgresql" needed here
 
-$ rspec
+$ rspec # all tests pass :-)
+...
+33 examples, 0 failures
 ```
 
 Note: Connection over tcp/ip socket (not UNIX domain socket)
@@ -187,3 +189,15 @@ def self.create_hbase_table(table_name)
   hbase_admin.create(table_name, "demo")
 end
 ```
+
+!SLIDE
+
+# Demo time
+
+}}} images/lonely_bird.jpg
+
+!SLIDE
+
+# Questions ?
+
+Note: looking for a new assignment from mid April
